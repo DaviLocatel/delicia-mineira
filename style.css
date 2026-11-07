@@ -1,0 +1,158 @@
+/* Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0a0a0a; /* Fundo da página preto */
+    color: #f3f4f6; /* Texto geral em cinza bem claro/branco */
+}
+
+/* Barra de Navegação */
+.navbar {
+    background-color: #dc2626; /* Nav vermelho */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-brand {
+    font-size: 1.6rem;
+    font-family: 'Georgia', serif; /* Fonte serifada para dar ar de restaurante tradicional */
+}
+
+.brand-yellow {
+    color: #fbbf24; /* Nome Delícia Mineira em amarelo */
+    font-weight: bold;
+}
+
+.brand-white {
+    color: #ffffff; /* Palavra restaurante em branco */
+    font-weight: normal;
+    font-size: 1.2rem;
+    margin-left: 6px;
+}
+
+/* Links do Menu Desktop */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.8rem;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #fbbf24; /* Fica amarelo ao passar o mouse */
+}
+
+/* Botão Menu Celular (escondido no PC) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+
+/* Seção Principal (Hero) */
+.hero {
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.95)), 
+                url('restaurante.png') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: #fbbf24;
+    margin-bottom: 1rem;
+    font-family: 'Georgia', serif;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primario {
+    background-color: #dc2626;
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primario:hover {
+    background-color: #b91c1c;
+    transform: scale(1.05);
+}
+
+/* Regras de Responsividade para Celulares */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Mostra o hambúrguer */
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #dc2626;
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    /* Classe ativada pelo JavaScript */
+    .nav-menu.ativo {
+        max-height: 250px;
+        padding: 1.5rem 0;
+        border-top: 1px solid #b91c1c;
+    }
+
+    .nav-menu li {
+        margin: 12px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
