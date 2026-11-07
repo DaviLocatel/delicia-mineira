@@ -1,22 +1,27 @@
-// Aguarda o documento carregar completamente
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleciona o botão do menu e a lista de links
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.getElementById('nav-menu');
 
-    // Quando clicar no hambúrguer, o menu abre/fecha
+    // Abre e fecha o menu no celular
     mobileMenu.addEventListener('click', () => {
-        // A classe 'ativo' no CSS lida com a expansão da lista no celular
         navMenu.classList.toggle('ativo');
     });
 
-    // Fecha o menu automaticamente quando o usuário clica em um link
+    // Fecha o menu ao clicar em qualquer link (para navegação em âncoras na mesma página)
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (navMenu.classList.contains('ativo')) {
-                navMenu.classList.remove('ativo');
-            }
+            navMenu.classList.remove('ativo');
         });
+    });
+
+    // Adiciona sombra na navbar ao rolar a página
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            nav.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.8)';
+        } else {
+            nav.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.3)';
+        }
     });
 });

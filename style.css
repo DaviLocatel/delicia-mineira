@@ -1,131 +1,299 @@
-/* Configurações Globais */
+/* Reset e Variáveis */
+:root {
+    --vermelho-nav: #e52323;
+    --amarelo-marca: #facc15;
+    --branco: #ffffff;
+    --fundo-preto: #000000;
+    --fundo-escuro: #111111;
+    --cinza-texto: #d1d5db;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #0a0a0a; /* Fundo da página preto */
-    color: #f3f4f6; /* Texto geral em cinza bem claro/branco */
+    background-color: var(--fundo-preto);
+    color: var(--cinza-texto);
+    line-height: 1.6;
 }
 
-/* Barra de Navegação */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navegação */
 .navbar {
-    background-color: #dc2626; /* Nav vermelho */
+    background-color: var(--vermelho-nav);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .nav-brand {
-    font-size: 1.6rem;
-    font-family: 'Georgia', serif; /* Fonte serifada para dar ar de restaurante tradicional */
+    font-size: 1.5rem;
 }
 
 .brand-yellow {
-    color: #fbbf24; /* Nome Delícia Mineira em amarelo */
-    font-weight: bold;
+    color: var(--amarelo-marca);
+    font-weight: 700;
 }
 
 .brand-white {
-    color: #ffffff; /* Palavra restaurante em branco */
-    font-weight: normal;
-    font-size: 1.2rem;
-    margin-left: 6px;
+    color: var(--branco);
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin-left: 4px;
 }
 
-/* Links do Menu Desktop */
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 1.8rem;
+    gap: 2rem;
 }
 
 .nav-menu a {
-    color: #ffffff;
+    color: var(--branco);
     text-decoration: none;
     font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+    font-size: 0.95rem;
+    transition: color 0.3s;
 }
 
 .nav-menu a:hover {
-    color: #fbbf24; /* Fica amarelo ao passar o mouse */
+    color: var(--amarelo-marca);
 }
 
-/* Botão Menu Celular (escondido no PC) */
+/* Menu Mobile */
 .menu-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    gap: 5px;
+    gap: 6px;
 }
 
 .menu-toggle .bar {
-    height: 3px;
     width: 25px;
-    background-color: #ffffff;
-    border-radius: 3px;
-    transition: all 0.3s;
+    height: 3px;
+    background-color: var(--branco);
+    transition: 0.3s;
 }
 
-/* Seção Principal (Hero) */
+/* Hero Section */
 .hero {
-    height: calc(100vh - 70px);
+    position: relative;
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 2rem;
-    background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.95)), 
-                url('restaurante.png') no-repeat center center;
+    background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    padding-top: 70px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
 }
 
 .hero h1 {
     font-size: 3.5rem;
-    color: #fbbf24;
-    margin-bottom: 1rem;
+    color: var(--amarelo-marca);
     font-family: 'Georgia', serif;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    color: var(--branco);
     margin-bottom: 2.5rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
+/* Botões */
 .btn-primario {
-    background-color: #dc2626;
-    color: #ffffff;
-    border: none;
-    padding: 12px 30px;
-    font-size: 1.1rem;
+    display: inline-block;
+    background-color: var(--vermelho-nav);
+    color: var(--branco);
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
     font-weight: bold;
-    border-radius: 6px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-primario:hover {
     background-color: #b91c1c;
-    transform: scale(1.05);
+    transform: translateY(-2px);
 }
 
-/* Regras de Responsividade para Celulares */
+.whatsapp-btn {
+    background-color: #25D366;
+}
+.whatsapp-btn:hover {
+    background-color: #1ebc59;
+}
+
+/* Seções Gerais */
+.section {
+    padding: 6rem 0;
+}
+
+.bg-dark {
+    background-color: var(--fundo-escuro);
+}
+
+.bg-black {
+    background-color: var(--fundo-preto);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--branco);
+    margin-bottom: 3rem;
+    font-family: 'Georgia', serif;
+}
+
+.section-title.left {
+    text-align: left;
+}
+
+.section-title span {
+    color: var(--amarelo-marca);
+}
+
+/* Grid Cardápio */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border: 1px solid #333;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    color: var(--amarelo-marca);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.card-content p {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.preco {
+    display: block;
+    color: var(--branco);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Ambiente */
+.ambiente-flex {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.ambiente-text, .ambiente-img {
+    flex: 1;
+}
+
+.ambiente-img img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Contato */
+.contato-desc {
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.contato-info {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.info-item h3 {
+    color: var(--amarelo-marca);
+    margin-bottom: 0.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #050505;
+    border-top: 1px solid #222;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: flex; /* Mostra o hambúrguer */
+        display: flex;
     }
 
     .nav-menu {
@@ -133,26 +301,39 @@ body {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #dc2626;
+        background-color: var(--vermelho-nav);
         flex-direction: column;
         align-items: center;
+        padding: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.4s ease-in-out;
+        transition: max-height 0.3s ease-in-out;
     }
 
-    /* Classe ativada pelo JavaScript */
     .nav-menu.ativo {
-        max-height: 250px;
-        padding: 1.5rem 0;
-        border-top: 1px solid #b91c1c;
+        max-height: 300px;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
     }
 
     .nav-menu li {
-        margin: 12px 0;
+        margin: 1rem 0;
     }
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+
+    .ambiente-flex {
+        flex-direction: column;
+    }
+
+    .contato-info {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .section-title.left {
+        text-align: center;
     }
 }

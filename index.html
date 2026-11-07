@@ -4,43 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delícia Mineira Restaurante</title>
-    <!-- O arquivo CSS é importado aqui -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Barra de Navegação Vermelha -->
+    <!-- Barra de Navegação -->
     <nav class="navbar">
-        <div class="nav-brand">
-            <span class="brand-yellow">Delícia Mineira</span> 
-            <span class="brand-white">restaurante</span>
-        </div>
-        
-        <!-- Ícone do Menu para Celular (Hambúrguer) -->
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-yellow">Delícia Mineira</span> 
+                <span class="brand-white">restaurante</span>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
 
-        <!-- Links de Navegação -->
-        <ul class="nav-menu" id="nav-menu">
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#cardapio">Cardápio</a></li>
-            <li><a href="#ambiente">O Ambiente</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#ambiente">O Ambiente</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Fundo da página principal em preto -->
-    <main class="hero" id="inicio">
+    <!-- Seção: Início (Hero) com a imagem local -->
+    <header class="hero" id="inicio" style="background-image: url('restaurante.png');">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>O autêntico sabor de Minas Gerais</h1>
             <p>Tradição, tempero caseiro e muito amor no fogão.</p>
-            <button class="btn-primario">Faça sua Reserva</button>
+            <a href="#contato" class="btn-primario">Faça sua Reserva</a>
         </div>
-    </main>
+    </header>
 
-    <!-- O arquivo JavaScript é importado no final do body -->
+    <!-- Seção: Cardápio -->
+    <section class="section bg-dark" id="cardapio">
+        <div class="container">
+            <h2 class="section-title">Nosso <span>Cardápio</span></h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1628294895950-9805252327bc?auto=format&fit=crop&q=80');"></div>
+                    <div class="card-content">
+                        <h3>Feijão Tropeiro Tradicional</h3>
+                        <p>Acompanha arroz branco, couve refogada, torresmo crocante e ovo frito.</p>
+                        <span class="preco">R$ 45,90</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80');"></div>
+                    <div class="card-content">
+                        <h3>Frango com Quiabo</h3>
+                        <p>Galinha caipira ensopada com quiabo, servida com polenta cremosa.</p>
+                        <span class="preco">R$ 52,90</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&q=80');"></div>
+                    <div class="card-content">
+                        <h3>Leitão à Pururuca</h3>
+                        <p>Pedaços suculentos de leitão com pele crocante, tutu de feijão e farofa.</p>
+                        <span class="preco">R$ 59,90</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: O Ambiente -->
+    <section class="section bg-black" id="ambiente">
+        <div class="container">
+            <div class="ambiente-flex">
+                <div class="ambiente-text">
+                    <h2 class="section-title left">Sinta-se em <span>Casa</span></h2>
+                    <p>Nosso espaço conta com mesas a vontade, móveis rústicos de madeira de demolição e um clima acolhedor perfeito para reunir a família e os amigos em volta da mesa.</p>
+                </div>
+                <div class="ambiente-img">
+                    <img src="interior.png" alt="Ambiente do restaurante">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Contato -->
+    <section class="section bg-dark" id="contato">
+        <div class="container text-center">
+            <h2 class="section-title">Faça sua <span>Reserva</span></h2>
+            <p class="contato-desc">Estamos abertos de Terça a Domingo, das 11h às 16h.</p>
+            
+            <div class="contato-info">
+                <div class="info-item">
+                    <h3>📍 Endereço</h3>
+                    <p>Av. Luciano das Neves, 2029 - Divino Espírito Santo<br>Espirito Santo, ES</p>
+                </div>
+                <div class="info-item">
+                    <h3>📱 WhatsApp</h3>
+                    <p>(27) 99962-1504</p>
+                </div>
+            </div>
+            
+            <a href="https://wa.me/5527999621504" class="btn-primario whatsapp-btn">Chamar no WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Delícia Mineira Restaurante. Todos os direitos reservados.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
